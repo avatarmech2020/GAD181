@@ -8,6 +8,7 @@ public class MouseFollow : MonoBehaviour
     public Vector3 objectPos;
     public Vector3 mousePos;
     public float angle;
+    public bool isPlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,21 @@ public class MouseFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPlaying == true)
+        {
+            LookAtMouse();
+        }
 
+
+    }
+
+    public void LookAtMouse()
+    {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         objectPos = this.transform.position;
 
 
-        this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x)* Mathf.Rad2Deg);
-
-
+        this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x) * Mathf.Rad2Deg);
 
     }
 }
