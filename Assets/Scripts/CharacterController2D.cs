@@ -39,12 +39,14 @@ public class CharacterController2D : MonoBehaviour
     }
 
     // Update is called once per frame
+
+  
     void Update()
     {
-        // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+        // Movement controls (wasd)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
         {
-            moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
+            moveDirection = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 1;
         }
         else
         {
@@ -54,7 +56,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        // Change facing direction
+            // Change facing direction
         if (moveDirection != 0)
         {
             if (moveDirection > 0 && !facingRight)
@@ -74,35 +76,61 @@ public class CharacterController2D : MonoBehaviour
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        {
+            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+        }
+
+        //Crouch
+        Vector3 scale = gameObject.GetComponent<CapsuleCollider2D>().transform.localScale;
 
 
+
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            scale.y *= 0.5f;
+            gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
+        }
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                scale.y *= 2f;
+                gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
+            }
+        
+
+        // Camera follow
+        if (mainCamera)
+       {
+           mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
+        }
+    }
 
     void FixedUpdate()
+    {
+        Bounds colliderBounds = mainCollider.bounds;
+        float colliderRadius = mainCollider.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
+        Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
+        // Check if player is grounded
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos, colliderRadius);
+        //Check if any of the overlapping colliders are not player collider, if so, set isGrounded to true
+        isGrounded = false;
+        if (colliders.Length > 0)
         {
-            Bounds colliderBounds = mainCollider.bounds;
-            float colliderRadius = mainCollider.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
-            Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
-            // Check if player is grounded
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos, colliderRadius);
-            //Check if any of the overlapping colliders are not player collider, if so, set isGrounded to true
-            isGrounded = false;
-            if (colliders.Length > 0)
+            for (int i = 0; i < colliders.Length; i++)
             {
-                for (int i = 0; i < colliders.Length; i++)
+                if (colliders[i] != mainCollider)
                 {
-                    if (colliders[i] != mainCollider)
-                    {
-                        isGrounded = true;
-                        break;
-                    }
+                    isGrounded = true;
+                    break;
                 }
             }
-
-            // Apply movement velocity
-            r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
-
-            // Simple debug
-            Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
-            Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
         }
-        
+
+        // Apply movement velocity
+        r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+
+        // Simple debug
+        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
+        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    }
+}
