@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ClickItemCorrect : MonoBehaviour, IPointerClickHandler
 {
-    private Vector3 mosPos;
-    private bool isObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +43,17 @@ public class ClickItemCorrect : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // when this object is clicked put this code in and destroy the object (because it is a correct selection)
         Debug.Log("That is a clue");
         Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
+        // when destroyed add one to the static score of the scoring script
+        ScoreCounterClick.score++;
+        Debug.Log(ScoreCounterClick.score);
+        // TO LATER BE ADDED when the level is complete reset the score
         
     }
 }

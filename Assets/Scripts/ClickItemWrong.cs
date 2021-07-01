@@ -5,21 +5,18 @@ using UnityEngine.EventSystems;
 
 public class ClickItemWrong : MonoBehaviour, IPointerClickHandler
 {
-    public static int counter = 0;
+    
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    // To have the wrong item do something
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        // when clicked on type this debug log
         Debug.Log("Thats not a clue");
-        counter++;
-        if (counter == 3)
-        {
-            // initiate gameover screen and move to next
-        }
+        ScoreCounterClick.failures++;
+        Debug.Log(ScoreCounterClick.failures);
+        
     }
 }
