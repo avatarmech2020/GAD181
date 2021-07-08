@@ -544,6 +544,8 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 415328971}
   mainCamera: {fileID: 1309816205}
+  offset: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
 --- !u!70 &415328970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &417443954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1615,6 @@ GameObject:
   - component: {fileID: 1309816206}
   - component: {fileID: 1309816205}
   - component: {fileID: 1309816204}
-  - component: {fileID: 1309816207}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1686,27 +1687,6 @@ Transform:
   m_Father: {fileID: 415328968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1309816207
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309816203}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1319198724
 GameObject:
   m_ObjectHideFlags: 0
