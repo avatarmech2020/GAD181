@@ -11,7 +11,7 @@ public class TopdownCharacterController : MonoBehaviour
     private Vector2 moveDirection;
     public Camera mainCamera;
     public Vector3 offset;
-    public Transform player;
+    public Animator Animator;
 
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class TopdownCharacterController : MonoBehaviour
        // camera follow
         if (mainCamera)
         {
-            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+            mainCamera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, offset.z);
         }
 
     }
