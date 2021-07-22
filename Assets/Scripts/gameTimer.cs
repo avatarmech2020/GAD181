@@ -35,7 +35,7 @@ public class gameTimer : MonoBehaviour
             {
                 Debug.Log("Time has run out.");
                 remainingTime = 0;
-                timeIsRunning = false;
+                timeIsRunning = false; 
                 TimeText.text = "00.00";
                 
             }

@@ -23,12 +23,13 @@ public class TopdownCharacterController : MonoBehaviour
         {
             mainCamera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, offset.z);
         }
-
+        Animator.SetBool("IsMoving", false);
     }
     // updates only when needed
     private void FixedUpdate()
     {
         move();
+        Animator.SetBool("isMoving", true);
     }
     // proccessing inputs works with wads and directional keys
     void inputProccess()
@@ -37,15 +38,15 @@ public class TopdownCharacterController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         
         moveDirection = new Vector2(moveX, moveY).normalized;
-        
+       
     }
     // moves sprite according to inputs
     void move()
     {
       
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    
        
+        
     }
 
 
