@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class SlowingCollision : MonoBehaviour
 {
-    public float objectSpeed;
     public float slow;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -18,14 +16,29 @@ public class SlowingCollision : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
+            CharacterController2D charController = other.gameObject.GetComponent<CharacterController2D>();
+            if (!charController.isSlowed)
+            {
+                charController.isSlowed = true;
+                charController.maxSpeed = charController.maxSpeed * slow;
+            }
+        }
+    }
 
-            objectSpeed = other.gameObject.GetComponent<CharacterController2D>().maxSpeed;
-            other.gameObject.GetComponent<CharacterController2D>().maxSpeed = objectSpeed - slow;
-        
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            CharacterController2D charController = other.gameObject.GetComponent<CharacterController2D>();
+            if (charController.isSlowed)
+            {
+                charController.isSlowed = false;
+                charController.maxSpeed = charController.maxSpeed * 2;
+            }
         }
     }
 }

@@ -12,10 +12,12 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
+    public Animator anim;
 
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
+    public bool isSlowed = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
