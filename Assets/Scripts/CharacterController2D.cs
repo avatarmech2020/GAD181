@@ -45,6 +45,12 @@ public class CharacterController2D : MonoBehaviour
   
     void Update()
     {
+
+        anim.SetFloat("maxSpeed", maxSpeed);
+        anim.SetBool("IsGrounded", isGrounded);
+        // need one for explosion
+
+
         // Movement controls (wasd)
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
         {
