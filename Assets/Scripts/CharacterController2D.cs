@@ -44,6 +44,10 @@ public class CharacterController2D : MonoBehaviour
   
     void Update()
     {
+
+        Animator.SetFloat("maxSpeed", Mathf.Abs(moveDirection));
+        Animator.SetBool("isGrounded", isGrounded);
+
         // Movement controls (wasd)
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
         {
@@ -104,6 +108,9 @@ public class CharacterController2D : MonoBehaviour
        {
            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
         }
+
+
+
     }
 
     void FixedUpdate()
