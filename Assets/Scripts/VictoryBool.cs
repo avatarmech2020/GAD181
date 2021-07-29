@@ -2,31 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class VictoryBool : MonoBehaviour
 {
-
-
-    public float damage;
+    public bool victoryAttained = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<Health>() != null)
+        // enter the level finish zone/object
+        if (other.gameObject.tag == "Player")
         {
-            // take the damage from their health pool
-            other.gameObject.GetComponent<Health>().health -= damage;
-
+            
+            victoryAttained = true;
         }
+
     }
 
+
 }
+

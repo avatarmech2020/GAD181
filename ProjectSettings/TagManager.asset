@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WrongItem
   - RightItem
+  - Victory
   layers:
   - Default
   - TransparentFX
