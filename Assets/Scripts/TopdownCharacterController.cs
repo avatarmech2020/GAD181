@@ -31,7 +31,7 @@ public class TopdownCharacterController : MonoBehaviour
             mainCamera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, offset.z);
         }
 
-
+        
 
         if (inputProcces_b == false)
         {
@@ -46,8 +46,8 @@ public class TopdownCharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         move();
-        inputProcces_b = false;
 
+        inputProcces_b = false;
 
     }
     // proccessing inputs works with wads and directional keys

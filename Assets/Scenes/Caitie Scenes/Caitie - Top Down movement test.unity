@@ -591,7 +591,8 @@ MonoBehaviour:
   rb: {fileID: 415328971}
   mainCamera: {fileID: 1309816205}
   offset: {x: 0, y: 0, z: 0}
-  Animator: {fileID: 0}
+  isMoving: 1
+  Animator_m: {fileID: 415328972}
 --- !u!70 &415328970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -639,7 +640,7 @@ Animator:
   m_GameObject: {fileID: 415328966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 755f95f9c0603844babcfa7b80269448, type: 2}
+  m_Controller: {fileID: 9100000, guid: fee68e14117622348ae41c212e621398, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
