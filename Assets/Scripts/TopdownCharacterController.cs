@@ -31,7 +31,7 @@ public class TopdownCharacterController : MonoBehaviour
             mainCamera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, offset.z);
         }
 
-        
+        Debug.Log(inputProcces_b);
 
         if (inputProcces_b == false)
         {
@@ -57,7 +57,11 @@ public class TopdownCharacterController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
-        inputProcces_b = true;
+
+        if (moveX != 0 || moveY != 0)
+        {
+            inputProcces_b = true;
+        }        
     }
     // moves sprite according to inputs
     void move()
