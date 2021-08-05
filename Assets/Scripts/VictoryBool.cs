@@ -5,6 +5,8 @@ using UnityEngine;
 public class VictoryBool : MonoBehaviour
 {
     public bool victoryAttained = false;
+    public bool lossLife = false;
+    public GameObject playerController;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,11 @@ public class VictoryBool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerController = null)
+        {
+            lossLife = true;
+            
+        }
         
     }
 
@@ -25,6 +31,8 @@ public class VictoryBool : MonoBehaviour
         {
             
             victoryAttained = true;
+
+            
         }
 
     }
