@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7117788286179393435}
-  - component: {fileID: 3067913601450343127}
-  - component: {fileID: 4437699390057604127}
+  - component: {fileID: 1165522977}
+  - component: {fileID: 2434697396492764401}
+  - component: {fileID: 965492622261397897}
   m_Layer: 0
   m_Name: Gnome of death
   m_TagString: Victory
@@ -36,8 +37,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3067913601450343127
-CircleCollider2D:
+--- !u!61 &1165522977
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -49,25 +50,46 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.019006073, y: -0.2280727}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 6
---- !u!70 &4437699390057604127
-CapsuleCollider2D:
+  m_Size: {x: 0.5818666, y: 1.4561454}
+  m_EdgeRadius: 0
+--- !u!114 &2434697396492764401
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434442821840902190}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 0.5, y: 1.2}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980fd4759070fc94eb2097e4396642fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: 0
+  timer: 0
+  startTimer: 0
+--- !u!114 &965492622261397897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434442821840902190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260e7b5d5bc485149a34833f00e97ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3079798195115014285
 GameObject:
   m_ObjectHideFlags: 0
