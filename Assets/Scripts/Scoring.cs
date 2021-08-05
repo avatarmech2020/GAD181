@@ -24,7 +24,7 @@ public class Scoring : MonoBehaviour
             //call apon level pick
             Debug.Log("I HAVE CHANGED THE DAMN THING CALLED BOY");
             scoreWins++;
-            victoryBool.victoryAttained = false;
+            // timescale to possibly be phased out
             Time.timeScale = 0;
         }
 
@@ -34,8 +34,15 @@ public class Scoring : MonoBehaviour
             // call apon scene changer and add one to loss score
             Debug.Log("you lost");
             scoreLoss++;
-            victoryBool.lossLife = false;
+            // timescale to possibly be phased out
             Time.timeScale = 0;
         }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        tick = false;
+        victoryBool.lossLife = false;
+        victoryBool.victoryAttained = false;
     }
 }
