@@ -12,11 +12,12 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
-    public Animator Animator;
+    public Animator anim;
 
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
+    public bool isSlowed = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -45,8 +46,11 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
 
-        Animator.SetFloat("maxSpeed", Mathf.Abs(moveDirection));
-        Animator.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("maxSpeed", maxSpeed);
+        anim.SetBool("IsGrounded", isGrounded);
+        
+        // need one for explosion in health script
+
 
         // Movement controls (wasd)
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))

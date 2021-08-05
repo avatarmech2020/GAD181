@@ -51,8 +51,7 @@ public class ClickItemCorrect : MonoBehaviour, IPointerClickHandler
     private void OnDestroy()
     {
         // when destroyed add one to the static score of the scoring script
-        ScoreCounterClick.score++;
-        Debug.Log(ScoreCounterClick.score);
+
         // TO LATER BE ADDED when the level is complete reset the score
         
     }

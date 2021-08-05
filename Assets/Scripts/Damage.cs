@@ -5,8 +5,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
 
-    private float tempHealth;
-    private float tempResistance;
+
     public float damage;
     // Start is called before the first frame update
     void Start()
@@ -20,16 +19,14 @@ public class Damage : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // if the object has the health script then
         if (other.gameObject.GetComponent<Health>() != null)
-            {
-                // take the damage from their health pool
-                other.gameObject.GetComponent<Health>().health -= damage;
+        {
+            // take the damage from their health pool
+            other.gameObject.GetComponent<Health>().health -= damage;
 
-            }
-        
+        }
     }
 
 }
