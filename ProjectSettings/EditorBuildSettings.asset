@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Andy Scenes/Menu scene.unity
+    guid: 635f3c294a6e976448abfff9f38fcaf6
+  - enabled: 1
+    path: Assets/Scenes/Andy Scenes/gengar.unity
+    guid: e727b42d375682e418643c1c7fd373db
+  - enabled: 1
+    path: Assets/Scenes/Andy Scenes/mew.unity
+    guid: ee7a62dd078e5044a866bb65f7e80d04
+  - enabled: 1
+    path: Assets/Scenes/Andy Scenes/onix.unity
+    guid: 412cc5731eb01644aa14c8bc376dbaf5
+  - enabled: 1
+    path: Assets/Scenes/Andy Scenes/pikachu.unity
+    guid: edb1e30c131701c44af887839b07fcb0
   m_configObjects: {}
