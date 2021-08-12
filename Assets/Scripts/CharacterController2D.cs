@@ -47,8 +47,8 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
 
-        anim.SetFloat("maxSpeed", maxSpeed);
-        anim.SetBool("IsGrounded", isGrounded);
+        Anim.SetFloat("maxSpeed", maxSpeed);
+        Anim.SetBool("IsGrounded", isGrounded);
         
         // need one for explosion in health script
 
