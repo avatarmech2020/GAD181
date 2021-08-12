@@ -10,7 +10,9 @@ public class VictoryBool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerController = GameObject.FindGameObjectWithTag("Player");
+        
+        
     }
 
     // Update is called once per frame
@@ -21,7 +23,13 @@ public class VictoryBool : MonoBehaviour
             lossLife = true;
             
         }
-        
+
+        if (victoryAttained)
+        {
+            victoryBool = true;
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
