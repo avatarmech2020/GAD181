@@ -20,7 +20,7 @@ public class async : MonoBehaviour
         if(loadlevel == true)
         {
             loadlevel = false;
-            SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(levelName);
         }
     }
 }

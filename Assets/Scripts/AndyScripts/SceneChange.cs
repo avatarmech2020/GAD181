@@ -9,6 +9,9 @@ public class SceneChange : MonoBehaviour
     private int number;
     public List<string> sceneNames = new List<string>();
 
+    public string prevName;
+
+    public static bool victoryBool;
     
 
     // Start is called before the first frame update
@@ -27,17 +30,34 @@ public class SceneChange : MonoBehaviour
     {
         List<string> newRandomScenes = new List<string>(); // Created an empty list of strings to contain random scene names
 
-        while (newRandomScenes.Count < scenes.Length) //Select 'n' number of games to put into the list 
+        while (newRandomScenes.Count < scenes.Length)  //Select 'n' number of games to put into the list
         {
-
             int randomGameIndex = Random.Range(0, sceneNames.Count); // Pick random index from initial scene names list
             newRandomScenes.Add(sceneNames[randomGameIndex]); // Add the scene name to the newRandomScenes list
             sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list 
-        }
+        } 
 
         foreach (string name in newRandomScenes)
         {
             print(name);
+            int x = 1;
+            //if (endCondition.victoryAttained)
+            //{
+            SceneManager.LoadScene(name, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(prevName);
+
+            if (x == 1)
+            {
+                SceneManager.UnloadSceneAsync("Main Menu");
+                x++;
+            }
+            //}
+            prevName = name;
         }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
     }
 }
