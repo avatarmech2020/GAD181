@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Andy Scenes/Menu scene.unity
+    path: Assets/Scenes/Andy Scenes/async.unity
     guid: 635f3c294a6e976448abfff9f38fcaf6
   - enabled: 1
     path: Assets/Scenes/Andy Scenes/gengar.unity

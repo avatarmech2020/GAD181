@@ -9,7 +9,6 @@ public class SceneChange : MonoBehaviour
     private int number;
     public List<string> sceneNames = new List<string>();
 
-
     
 
     // Start is called before the first frame update
@@ -30,6 +29,7 @@ public class SceneChange : MonoBehaviour
 
         while (newRandomScenes.Count < scenes.Length) //Select 'n' number of games to put into the list 
         {
+
             int randomGameIndex = Random.Range(0, sceneNames.Count); // Pick random index from initial scene names list
             newRandomScenes.Add(sceneNames[randomGameIndex]); // Add the scene name to the newRandomScenes list
             sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list 
