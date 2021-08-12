@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
-    public Animator Animator;
+    public Animator Anim;
 
     bool facingRight = true;
     float moveDirection = 0;
@@ -25,6 +25,7 @@ public class CharacterController2D : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Anim.gameObject.GetComponent<Animator>();
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -48,12 +49,14 @@ public class CharacterController2D : MonoBehaviour
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
         {
             moveDirection = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 1;
+            Anim.SetBool("isMoving", true);
         }
         else
         {
             if (isGrounded || r2d.velocity.magnitude < 0.01f)
             {
                 moveDirection = 0;
+                Anim.SetBool("isMoiving", false);
             }
         }
 
@@ -76,13 +79,18 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            Anim.SetBool("isJumping", true);
             
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            Anim.SetBool("isJumping", true);
         }
-
+        else
+        {
+            Anim.SetBool("isJumping", false);
+        }
         //Crouch
         Vector3 scale = gameObject.GetComponent<CapsuleCollider2D>().transform.localScale;
 
@@ -92,12 +100,18 @@ public class CharacterController2D : MonoBehaviour
         {
             scale.y *= 0.5f;
             gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
+            Anim.SetBool("isDucking", true);
         }
         if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
                 scale.y *= 2f;
                 gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
+            Anim.SetBool("isDucking", true);
             }
+        else
+        {
+            Anim.SetBool("IsDucking", false);
+        }
         
 
         // Camera follow
