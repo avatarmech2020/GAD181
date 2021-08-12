@@ -12,11 +12,11 @@ public class TopdownCharacterController : MonoBehaviour
     public Camera mainCamera;
     public Vector3 offset;
     public bool isMoving;
-    public Animator Animator_m;
+    public Animator Anim;
     bool inputProcces_b = false;
     private void Start()
     {
-        Animator_m.gameObject.GetComponent<Animator>();
+        Anim.gameObject.GetComponent<Animator>();
 
 
 
@@ -35,11 +35,11 @@ public class TopdownCharacterController : MonoBehaviour
 
         if (inputProcces_b == false)
         {
-            Animator_m.SetBool("IsMoving", false);
+            Anim.SetBool("IsMoving", false);
         }
         if (inputProcces_b == true)
         {
-            Animator_m.SetBool("IsMoving", true);
+            Anim.SetBool("IsMoving", true);
         }
     }
     // updates only when needed
