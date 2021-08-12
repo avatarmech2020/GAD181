@@ -9,18 +9,15 @@ public class AsyncLoading : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-       StartCoroutine(LoadSceneAsync());
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-
+        StartCoroutine(LoadSceneAsync());
 
     }
-
-    // Update is called once per frame
+  
+    // load main menu over blank scene
     IEnumerator LoadSceneAsync()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("AsyncLoading");
-        while (!asyncLoad.isDone)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        if (!asyncLoad.isDone)
         {
             yield return null;
         }
