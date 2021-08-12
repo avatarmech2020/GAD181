@@ -30,11 +30,14 @@ public class MouseFollow : MonoBehaviour
 
     public void LookAtMouse()
     {
+        // gets the position of the mouse and the object position
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         objectPos = this.transform.position;
 
+
+        // the transform rotation = the rotation equation below which calculates the position between the object and the mouse position 
         this.transform.rotation = transformRotation;
-        transformRotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x) * Mathf.Rad2Deg);
+        transformRotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x) * Mathf.Rad2Deg -90);
 
     }
 }
