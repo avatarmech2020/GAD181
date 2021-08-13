@@ -22,5 +22,12 @@ public class AsyncLoading : MonoBehaviour
             yield return null;
         }
     }
+    public void LoadRanGame()
+    {
+        
+        int index = Random.Range(2, 5);
+        SceneManager.LoadScene(index, LoadSceneMode.Additive);
+        Debug.Log("scene loaded");
 
+    }
 }

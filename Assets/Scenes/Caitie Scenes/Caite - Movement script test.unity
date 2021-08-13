@@ -831,7 +831,7 @@ MonoBehaviour:
   jumpHeight: 6.5
   gravityScale: 1.5
   mainCamera: {fileID: 0}
-  Animator: {fileID: 311750018}
+  Anim: {fileID: 311750018}
 --- !u!70 &677176343
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -845,8 +845,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000001, y: 1}
+  m_Offset: {x: 0, y: 0.0035695494}
+  m_Size: {x: 1.0000001, y: 0.9928609}
   m_Direction: 0
 --- !u!50 &677176344
 Rigidbody2D:
@@ -1820,8 +1820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674, y: -330}
-  m_SizeDelta: {x: 103.913, y: 92.143}
+  m_AnchoredPosition: {x: -445.808, y: 180.13}
+  m_SizeDelta: {x: 166.433, y: 92.143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230232336
 MonoBehaviour:
