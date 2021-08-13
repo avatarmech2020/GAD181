@@ -11,41 +11,66 @@ public class TopdownCharacterController : MonoBehaviour
     private Vector2 moveDirection;
     public Camera mainCamera;
     public Vector3 offset;
-    public Transform player;
+    public bool isMoving;
+    public Animator Anim;
+    bool inputProcces_b = false;
+    private void Start()
+    {
+        Anim.gameObject.GetComponent<Animator>();
 
 
+
+    }
     // Update is called once per frame
     void Update()
     {
         inputProccess();
-       // camera follow
+        // camera follow
         if (mainCamera)
         {
-            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+            mainCamera.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, offset.z);
         }
 
+        Debug.Log(inputProcces_b);
+
+        if (inputProcces_b == false)
+        {
+            Anim.SetBool("IsMoving", false);
+        }
+        if (inputProcces_b == true)
+        {
+            Anim.SetBool("IsMoving", true);
+        }
     }
     // updates only when needed
     private void FixedUpdate()
     {
         move();
+
+        inputProcces_b = false;
+
     }
     // proccessing inputs works with wads and directional keys
     void inputProccess()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        
+
         moveDirection = new Vector2(moveX, moveY).normalized;
-        
+
+        if (moveX != 0 || moveY != 0)
+        {
+            inputProcces_b = true;
+        }        
     }
     // moves sprite according to inputs
     void move()
     {
-      
+
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    
-       
+
+
+
     }
 
 
