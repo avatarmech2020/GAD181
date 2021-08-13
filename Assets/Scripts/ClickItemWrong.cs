@@ -15,8 +15,7 @@ public class ClickItemWrong : MonoBehaviour, IPointerClickHandler
     {
         // when clicked on type this debug log
         Debug.Log("Thats not a clue");
-        ScoreCounterClick.failures++;
-        Debug.Log(ScoreCounterClick.failures);
+
         
     }
 }
