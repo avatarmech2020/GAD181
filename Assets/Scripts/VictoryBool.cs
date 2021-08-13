@@ -26,7 +26,7 @@ public class VictoryBool : MonoBehaviour
 
         if (victoryAttained)
         {
-            victoryBool = true;
+            victoryAttained = true;
         }
 
 

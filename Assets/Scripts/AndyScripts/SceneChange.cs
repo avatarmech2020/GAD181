@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;                  //this line is necessary to be able to use the scene change line
+using UnityEngine.SceneManagement;  //this line is necessary to be able to use the scene change line
 
 public class SceneChange : MonoBehaviour
 {
@@ -17,6 +17,10 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sceneNames.Add("pikachu");
+        sceneNames.Add("onix");
+        sceneNames.Add("gengar");
+        sceneNames.Add("mew");
         SelectRandomArray();
     }
 
@@ -34,23 +38,18 @@ public class SceneChange : MonoBehaviour
         {
             int randomGameIndex = Random.Range(0, sceneNames.Count); // Pick random index from initial scene names list
             newRandomScenes.Add(sceneNames[randomGameIndex]); // Add the scene name to the newRandomScenes list
-            sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list 
+            sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list
+
         } 
 
         foreach (string name in newRandomScenes)
         {
             print(name);
-            int x = 1;
             //if (endCondition.victoryAttained)
             //{
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync(prevName);
-
-            if (x == 1)
-            {
-                SceneManager.UnloadSceneAsync("Main Menu");
-                x++;
-            }
+            SceneManager.UnloadSceneAsync("Main Menu");
             //}
             prevName = name;
         }
@@ -60,4 +59,5 @@ public class SceneChange : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
+
 }

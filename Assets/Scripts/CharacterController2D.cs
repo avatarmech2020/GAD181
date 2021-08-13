@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
-    public Animator Anim;
+    public Animator Anim; //pls work
 
     bool facingRight = true;
     float moveDirection = 0;
