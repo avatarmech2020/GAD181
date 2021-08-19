@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class ClickItemCorrect : MonoBehaviour, IPointerClickHandler
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +37,7 @@ public class ClickItemCorrect : MonoBehaviour, IPointerClickHandler
         //    Debug.Log("YES");
         //}
         //}
-
+        
     }
 
     public void OnPointerClick(PointerEventData eventData)
