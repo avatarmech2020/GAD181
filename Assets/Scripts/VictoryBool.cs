@@ -7,6 +7,8 @@ public class VictoryBool : MonoBehaviour
     public bool victoryAttained = false;
     public bool lossLife = false;
     public GameObject playerController;
+    public int counter;
+    public int counterEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +26,19 @@ public class VictoryBool : MonoBehaviour
             
         }
 
+        if (counter >= counterEnd)
+        {
+            victoryAttained = true;
+        }
+
+
         if (victoryAttained)
         {
-            Debug.LogError("FIX VICTORY BOOL HERE");
             //victoryBool = true;
         }
+
+
+
 
 
     }
