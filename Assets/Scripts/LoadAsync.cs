@@ -10,7 +10,7 @@ public class LoadAsync : MonoBehaviour
     {
         
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        sceneChange.GetComponent<SceneChange>();
+        
     }
     private void Update()
     {
