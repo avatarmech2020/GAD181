@@ -26,7 +26,8 @@ public class VictoryBool : MonoBehaviour
 
         if (victoryAttained)
         {
-            victoryBool = true;
+            Debug.LogError("FIX VICTORY BOOL HERE");
+            //victoryBool = true;
         }
 
 
