@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<CharacterController2D>().anim;
+        anim = gameObject.GetComponent<CharacterController2D>().Anim;
     }
 
     // if the object health is lower than 0 auto destroy it (in future using an animation first before destroying it)
