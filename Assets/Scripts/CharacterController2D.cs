@@ -17,6 +17,7 @@ public class CharacterController2D : MonoBehaviour
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
+    public bool isSlowed = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -47,6 +48,13 @@ public class CharacterController2D : MonoBehaviour
   
     void Update()
     {
+
+        Anim.SetFloat("maxSpeed", maxSpeed);
+        Anim.SetBool("IsGrounded", isGrounded);
+        
+        // need one for explosion in health script
+
+
         // Movement controls (wasd)
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
         {
@@ -118,6 +126,9 @@ public class CharacterController2D : MonoBehaviour
        {
            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
         }
+
+
+
     }
 
     void FixedUpdate()
