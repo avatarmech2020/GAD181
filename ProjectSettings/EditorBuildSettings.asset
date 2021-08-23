@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Andy Scenes/async.unity
-    guid: 635f3c294a6e976448abfff9f38fcaf6
-  - enabled: 1
     path: Assets/Scenes/Andy Scenes/gengar.unity
     guid: e727b42d375682e418643c1c7fd373db
   - enabled: 1
@@ -17,8 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Andy Scenes/onix.unity
     guid: 412cc5731eb01644aa14c8bc376dbaf5
-  - enabled: 1
-    path: Assets/Scenes/Caitie Scenes/puzzle.unity
+  - enabled: 0
+    path: Assets/Scenes/Caitie Scenes/Ice Spike Dodge.unity
     guid: ad4523cd153cf1d47ada5a9b13bfaa5c
   - enabled: 1
     path: Assets/Scenes/Caitie Scenes/Caitie - Top Down movement test.unity
