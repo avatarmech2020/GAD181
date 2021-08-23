@@ -1,15 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuScript : MonoBehaviour
+public class MenuScript : MonoBehaviour 
 {
+    public SceneChange ChangeScene;
+    
+    public void Start()
+    {
+        
+    }
+
     public void PlayApp()
     {
         Debug.Log("lolplay");
         // turn on the scene changer script
+       // ChangeScene.Start();
+
     }
+
+   
+
     public void ExitApp()
     {
         Debug.Log("i quit");
