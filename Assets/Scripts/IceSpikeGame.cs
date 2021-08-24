@@ -16,7 +16,7 @@ public class IceSpikeGame : MonoBehaviour
        
         CurrentGameTimer.timeIsRunning = true;
         BackgroundAudio = GameObject.FindObjectOfType<AudioSource>();
-        if(CurrentGameTimer.remainingTime > 0)
+        while(CurrentGameTimer.remainingTime > 0)
         {
             InvokeRepeating("FallingSpikes()", 0.0f, 5.0f);
 
@@ -32,11 +32,7 @@ public class IceSpikeGame : MonoBehaviour
     }
     public void FallingSpikes()
     {
-
-        
        var pos : SpawnPoints[Random.Range(0, SpawnPoints.Length)].transform.position;
-
-
-
+       var instance = Instantiate(IceSpike, pos, transform.position);
     }
 }
