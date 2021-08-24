@@ -15,18 +15,18 @@ public class SceneChange : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         SelectRandomArray();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        SelectRandomArray();
     }
 
-    private void SelectRandomArray()
+    public void SelectRandomArray()
     {
         List<string> newRandomScenes = new List<string>(); // Created an empty list of strings to contain random scene names
 
@@ -48,7 +48,7 @@ public class SceneChange : MonoBehaviour
 
             if (x == 1)
             {
-                SceneManager.UnloadSceneAsync("Main Menu");
+                SceneManager.UnloadSceneAsync("MainMenu");
                 x++;
             }
             //}

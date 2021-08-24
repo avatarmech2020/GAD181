@@ -133,6 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 846618455}
   - component: {fileID: 846618454}
+  - component: {fileID: 846618458}
+  - component: {fileID: 846618457}
+  - component: {fileID: 846618456}
+  - component: {fileID: 846618459}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -152,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a52a1cb67093704c8f916efd86d9a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneChange: {fileID: 846618456}
 --- !u!4 &846618455
 Transform:
   m_ObjectHideFlags: 0
@@ -166,3 +171,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846618456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846618453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043414d3c271bf24f95fdeca6623a976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes:
+  - pikachu
+  - onix
+  - gengar
+  - mew
+  sceneNames: []
+  prevName: 
+--- !u!114 &846618457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846618453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbd1fd9b572d5845bca432dc77113d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryAttained: 0
+  lossLife: 0
+  playerController: {fileID: 0}
+  counter: 0
+  counterEnd: 0
+--- !u!114 &846618458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846618453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9f06411bbe53a49bdc7ded678a9842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreWins: 0
+  scoreLoss: 0
+  tick: 0
+  victoryBool: {fileID: 846618457}
+--- !u!114 &846618459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846618453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d473e6cf432fc8f42a5ba01ce348587f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeScene: {fileID: 846618456}
