@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;  //this line is necessary to be able to use the scene change line
+using UnityEngine.SceneManagement;                  //this line is necessary to be able to use the scene change line
 
 public class SceneChange : MonoBehaviour
 {
@@ -15,22 +15,18 @@ public class SceneChange : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        sceneNames.Add("pikachu");
-        sceneNames.Add("onix");
-        sceneNames.Add("gengar");
-        sceneNames.Add("mew");
         SelectRandomArray();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        SelectRandomArray();
     }
 
-    private void SelectRandomArray()
+    public void SelectRandomArray()
     {
         List<string> newRandomScenes = new List<string>(); // Created an empty list of strings to contain random scene names
 
@@ -38,18 +34,23 @@ public class SceneChange : MonoBehaviour
         {
             int randomGameIndex = Random.Range(0, sceneNames.Count); // Pick random index from initial scene names list
             newRandomScenes.Add(sceneNames[randomGameIndex]); // Add the scene name to the newRandomScenes list
-            sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list
-
+            sceneNames.RemoveAt(randomGameIndex); // Remove scene name from the initial scene names list 
         } 
 
         foreach (string name in newRandomScenes)
         {
             print(name);
+            int x = 1;
             //if (endCondition.victoryAttained)
             //{
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync(prevName);
-            SceneManager.UnloadSceneAsync("Main Menu");
+
+            if (x == 1)
+            {
+                SceneManager.UnloadSceneAsync("MainMenu");
+                x++;
+            }
             //}
             prevName = name;
         }
@@ -59,5 +60,4 @@ public class SceneChange : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
-
 }

@@ -11,6 +11,7 @@ public class PlatformerVerOne : MonoBehaviour
     public GameObject Lock;
     public GameObject Player;
     public AudioSource backgroundMusic;
+    public VictoryBool vBool;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<CharacterController2D>())
@@ -26,6 +27,7 @@ public class PlatformerVerOne : MonoBehaviour
                     currentGameTimer.timeIsRunning = false;
                     Time.timeScale = 0f;
                     backgroundMusic.Stop();
+                    vBool.victoryAttained = true;
                 }
             }
         }
@@ -55,6 +57,7 @@ public class PlatformerVerOne : MonoBehaviour
             currentGameTimer.TimeText.text = ("You lose");
             Time.timeScale = 0f;
             backgroundMusic.Stop();
+            vBool.lossLife = true;
 
         }
         if(Player == null)
@@ -63,6 +66,7 @@ public class PlatformerVerOne : MonoBehaviour
             currentGameTimer.TimeText.text = ("You lose");
             Time.timeScale = 0f;
             backgroundMusic.Stop();
+            vBool.lossLife = true;
         }
     }
 }

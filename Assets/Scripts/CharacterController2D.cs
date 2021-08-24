@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
-    public Animator Anim; //pls work
+    public Animator Anim;
 
     bool facingRight = true;
     float moveDirection = 0;
@@ -34,7 +34,9 @@ public class CharacterController2D : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
-
+        Anim.SetBool("Ismoving", false);
+        Anim.SetBool("IsDucking", false);
+        Anim.SetBool("IsJumping", false);
         if (mainCamera)
         {
             cameraPos = mainCamera.transform.position;
@@ -57,14 +59,16 @@ public class CharacterController2D : MonoBehaviour
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
         {
             moveDirection = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 1;
-            Anim.SetBool("isMoving", true);
+            Anim.SetBool("IsMoving", true);
+            Anim.SetBool("IsJumping", false);
+            Anim.SetBool("IsDucking", false);
         }
         else
         {
             if (isGrounded || r2d.velocity.magnitude < 0.01f)
             {
                 moveDirection = 0;
-                Anim.SetBool("isMoiving", false);
+                Anim.SetBool("IsMoving", false);
             }
         }
 
@@ -87,39 +91,34 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
-            Anim.SetBool("isJumping", true);
+            Anim.SetBool("IsJumping", true);
             
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
-            Anim.SetBool("isJumping", true);
+            Anim.SetBool("IsJumping", true);
         }
         else
         {
-            Anim.SetBool("isJumping", false);
+            Anim.SetBool("IsJumping", false);
         }
         //Crouch
         Vector3 scale = gameObject.GetComponent<CapsuleCollider2D>().transform.localScale;
-
-
-
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             scale.y *= 0.5f;
             gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
-            Anim.SetBool("isDucking", true);
+            Anim.SetBool("IsDucking", true);
         }
         if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
                 scale.y *= 2f;
                 gameObject.GetComponent<CapsuleCollider2D>().transform.localScale = scale;
-            Anim.SetBool("isDucking", true);
-            }
-        else
-        {
             Anim.SetBool("IsDucking", false);
+                
         }
+         
         
 
         // Camera follow
@@ -160,4 +159,5 @@ public class CharacterController2D : MonoBehaviour
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
     }
+    
 }

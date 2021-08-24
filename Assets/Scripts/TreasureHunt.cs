@@ -9,13 +9,17 @@ public class TreasureHunt : MonoBehaviour
     private DestroyOnCollide destroyableChest;
     public TopdownCharacterController characterController;
     public AudioSource backgroundMusic;
-    
+    public VictoryBool VBool;
+   
+  
+
 
     // Start is called before the first frame update
     void Start()
     {
         destroyableChest = treasureChest.GetComponent<DestroyOnCollide>();
         backgroundMusic = GameObject.FindObjectOfType<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +34,8 @@ public class TreasureHunt : MonoBehaviour
                 currentGameTimer.timeIsRunning = false;
                 Time.timeScale = 0f;
                 backgroundMusic.Stop();
+                VBool.victoryAttained = true;
+               
 
             }
             if (currentGameTimer.remainingTime == 0)
@@ -37,6 +43,7 @@ public class TreasureHunt : MonoBehaviour
                 currentGameTimer.TimeText.text = ("You lose");
                 Time.timeScale = 0f;
                 backgroundMusic.Stop();
+                VBool.lossLife = true;
             }
         }       
         
