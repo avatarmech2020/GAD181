@@ -19,7 +19,14 @@ public class EnemyNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButton(0))
+        {
+              Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+               RaycastHit hit;
+               // Casts the ray and get the first game object hit
+               Physics.Raycast(ray, out hit);
+               Debug.Log("This hit at " + hit.point );
+        }
     }
 
     private string enemyNumber(int Enumber)
