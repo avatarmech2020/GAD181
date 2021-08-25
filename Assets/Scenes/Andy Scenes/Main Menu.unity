@@ -158,7 +158,11 @@ MonoBehaviour:
   - onix
   - gengar
   - mew
-  sceneNames: []
+  sceneNames:
+  - pikachu
+  - onix
+  - gengar
+  - mew
   prevName: 
 --- !u!4 &1217671418
 Transform:
@@ -189,3 +193,5 @@ MonoBehaviour:
   victoryAttained: 0
   lossLife: 0
   playerController: {fileID: 0}
+  counter: 0
+  counterEnd: 0

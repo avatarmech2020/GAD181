@@ -23,7 +23,7 @@ public class SceneChange : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        SelectRandomArray();
+       
     }
 
     public void SelectRandomArray()
@@ -40,7 +40,7 @@ public class SceneChange : MonoBehaviour
         foreach (string name in newRandomScenes)
         {
             print(name);
-            int x = 1;
+            /*int x = 1;
             //if (endCondition.victoryAttained)
             //{
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
@@ -52,7 +52,7 @@ public class SceneChange : MonoBehaviour
                 x++;
             }
             //}
-            prevName = name;
+            prevName = name;*/
         }
     }
 
