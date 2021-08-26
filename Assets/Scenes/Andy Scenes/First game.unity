@@ -299,8 +299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 36
+  arbitrary: 0
   text: 
   UItext: {fileID: 75106171}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1 &234423601
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,8 +397,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 6
+  arbitrary: 0
   text: 
   UItext: {fileID: 234423603}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1001 &323612707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,8 +1081,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 3
+  arbitrary: 0
   text: 
   UItext: {fileID: 850909221}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1 &862254797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,8 +2284,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 11
+  arbitrary: 0
   text: 
   UItext: {fileID: 1589669701}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1001 &1629147676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2427,8 +2439,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 13
+  arbitrary: 0
   text: 
   UItext: {fileID: 1671865794}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1 &1788220261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,8 +2740,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 2
+  arbitrary: 0
   text: 
   UItext: {fileID: 1968623417}
+  pNumber: {fileID: 979970598}
+  repeat: 1
 --- !u!1001 &7818908129223688746
 PrefabInstance:
   m_ObjectHideFlags: 0
